@@ -1,0 +1,15 @@
+name: github-actions-testing
+on: [push]
+jobs:
+  check-application:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        node-version: '12'
+    - name: Install dependencies
+      run: npm install
+    - name: Run tests
+      run: npm test
+    - name: Run application
+      run: node hello_world.js
