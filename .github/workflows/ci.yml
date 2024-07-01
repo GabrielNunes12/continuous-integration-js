@@ -8,6 +8,8 @@ jobs:
       with:
         node-version: '12'
     - name: Install dependencies
+      run: npm init -y
+      run: npm install jest
       run: npm install
     - name: Run tests
       run: npm test
