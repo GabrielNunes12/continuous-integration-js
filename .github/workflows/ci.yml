@@ -1,5 +1,11 @@
 name: github-actions-testing
-on: [push]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - develop
 jobs:
   check-application:
     runs-on: ubuntu-latest
@@ -10,7 +16,7 @@ jobs:
       with:
         node-version: '12.x'
     - name: Install dependencies
-      run: npm ci
+      run: npm init -y && npm ci
     - name: Build the project
       run: npm run build --if-present
     - name: Run tests
